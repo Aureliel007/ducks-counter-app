@@ -1,0 +1,38 @@
+{
+    "name": "ci_cd_hw",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "parcel src/index.html",
+        "build": "parcel build src/index.html --dist-dir dist",
+        "test": "jest",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix",
+        "format": "prettier --write src",
+        "prepare": "husky"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "eslint": "^10.6.0",
+        "globals": "^17.7.0",
+        "husky": "^9.1.7",
+        "jest": "^30.4.2",
+        "jest-environment-jsdom": "^30.4.1",
+        "lint-staged": "^17.0.8",
+        "parcel": "^2.16.4",
+        "prettier": "^3.9.4"
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{html,css,json}": [
+            "prettier --write"
+        ]
+    }
+}
