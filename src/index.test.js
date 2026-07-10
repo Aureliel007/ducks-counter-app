@@ -67,6 +67,6 @@ describe('resetCount()', () => {
         clickIncrement();
         clickSave();
         clickClear();
-        expect(getSaves()).toBe('Предыдущие значения: ');
+        expect(getSaves()).toBe('');
     });
 });
