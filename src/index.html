@@ -1,14 +1,29 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Yuyu&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <h1>Счётчик утят:</h1>
-        <h2 id="count-el">0</h2>
-        <button id="increment-btn">УВЕЛИЧИТЬ</button>
-        <button id="save-btn">СОХРАНИТЬ</button>
-        <button id="clear-btn">СБРОС</button>
-        <p id="save-el">Предыдущие значения:</p>
+        <div class="counter-card">
+            <h1 class="yuyu title">Ducks Counter</h1>
+            <h2 id="count-el" class="yuyu counter">0</h2>
+        </div>
+
+        <div class="buttons">
+            <button id="increment-btn">INCREMENT</button>
+            <button id="save-btn">SAVE</button>
+            <button id="clear-btn">CLEAR</button>
+        </div>
+
+        <div class="history-card">
+            <p class="yuyu text history-title">Previous values</p>
+            <p id="save-el" class="yuyu small history-values"></p>
+        </div>
         <script src="index.js"></script>
     </body>
 </html>

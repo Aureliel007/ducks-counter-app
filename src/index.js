@@ -18,15 +18,14 @@ function increment() {
 
 function save() {
     previousValues.push(count);
-    let previousValuesStr =
-        'Предыдущие значения: ' + previousValues.join(' - ');
+    let previousValuesStr = previousValues.join(' - ');
     saveEl.textContent = previousValuesStr;
     countEl.textContent = 0;
     count = 0;
 }
 function resetCount() {
     previousValues = [];
-    saveEl.textContent = 'Предыдущие значения: ';
+    saveEl.textContent = '';
     countEl.textContent = 0;
     count = 0;
 }
