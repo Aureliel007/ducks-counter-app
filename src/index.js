@@ -14,11 +14,27 @@ countEl.textContent = count;
 let previousValues = JSON.parse(localStorage.getItem('previousValues')) || [];
 saveEl.textContent = previousValues.join(' - ');
 
+let quackTimer;
+
+function showQuack() {
+    clearTimeout(quackTimer);
+
+    incrementButton.textContent = '🦆 Quack!';
+
+    quackTimer = setTimeout(() => {
+        incrementButton.textContent = 'INCREMENT';
+    }, 500);
+}
+
 function increment() {
     count++;
     countEl.textContent = count;
 
     localStorage.setItem('duckCount', count);
+
+    if (count % 5 === 0) {
+        showQuack();
+    }
 }
 
 function save() {
