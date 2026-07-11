@@ -2,22 +2,30 @@ let saveEl = document.getElementById('save-el');
 let countEl = document.getElementById('count-el');
 let incrementButton = document.getElementById('increment-btn');
 let saveButton = document.getElementById('save-btn');
-let clearButton = document.getElementById('clear-btn');
+let resetButton = document.getElementById('reset-btn');
 
 incrementButton.addEventListener('click', increment);
 saveButton.addEventListener('click', save);
-clearButton.addEventListener('click', resetCount);
+resetButton.addEventListener('click', resetCount);
 
-let count = 0;
-let previousValues = [];
+let count = Number(localStorage.getItem('duckCount')) || 0;
+countEl.textContent = count;
+
+let previousValues = JSON.parse(localStorage.getItem('previousValues')) || [];
+saveEl.textContent = previousValues.join(' - ');
 
 function increment() {
-    count += 1;
+    count++;
     countEl.textContent = count;
+
+    localStorage.setItem('duckCount', count);
 }
 
 function save() {
     previousValues.push(count);
+
+    localStorage.setItem('previousValues', JSON.stringify(previousValues));
+
     let previousValuesStr = previousValues.join(' - ');
     saveEl.textContent = previousValuesStr;
     countEl.textContent = 0;
@@ -28,4 +36,5 @@ function resetCount() {
     saveEl.textContent = '';
     countEl.textContent = 0;
     count = 0;
+    localStorage.clear();
 }
